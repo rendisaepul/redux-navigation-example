@@ -1,0 +1,3 @@
+export const ISLOADING = 'ISLOADING';
+export const FETCHING_USERS = 'FETCHING_USERS';
+export const FETCHING_ERROR = 'FETCHING_ERROR';
