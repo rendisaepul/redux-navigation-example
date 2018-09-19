@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import fetchUserReducer from './pageOneReducer';
+import fetchPostReducer from './pageOneReducer';
+import userDetailReducer from './userDetailReducer';
 
 const mainReducers = combineReducers({
-  pageOne: fetchUserReducer,
+  pageOne: fetchPostReducer,
+  userDetail: userDetailReducer,
 });
 
 export default mainReducers;

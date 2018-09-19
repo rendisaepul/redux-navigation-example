@@ -1,20 +1,20 @@
-import { ISLOADING, FETCHING_USERS, FETCHING_ERROR } from '../constants';
+import { ISLOADING, FETCHING_POST, FETCHING_ERROR } from '../constants';
 import axios from 'axios';
 
-export function setLoading(status) {
+function setLoading(status) {
   return {
     type: ISLOADING,
     status,
   };
 }
 
-export function fetchUsers() {
+export function fetchPost() {
   return (dispatch) => {
     dispatch(setLoading(true));
-    axios.get('https://jsonplaceholder.typicode.com/albums/1/photos')
+    axios.get('http://jsonplaceholder.typicode.com/posts')
       .then((response) => {
         dispatch(setLoading(false));
-        dispatch({ type: FETCHING_USERS, payload: response.data })
+        dispatch({ type: FETCHING_POST, payload: response.data })
       })
       .catch((error) => {
         dispatch(setLoading(false));

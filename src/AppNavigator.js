@@ -1,29 +1,44 @@
-import { createStackNavigator } from 'react-navigation';
-import PageOne from './component/pageOne';
-import PageTwo from './component/pageTwo';
-import Home from './component/home';
-import ChildPageOne from './component/childPageOne';
-import pageOne from './component/pageOne';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { } from 'react-native'
+import TabOne from './component/tabOne';
+import TabTwo from './component/tabTwo';
+import UserDetail from './component/userDetail';
 
-const RootStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     Home: {
-      screen: Home,
+      screen: TabOne,
       navigationOptions: {
-        header: null,
-      },
-    },
-    PageOne: {
-      screen: pageOne,
-      navigationOptions: {
-        title: 'LIST USER',
+        title: 'SAMPLE FETCH (press one)',
       }
     },
-    PageTwo: PageTwo,
-    ChildPageOne: ChildPageOne,
+    UserDetail: {
+      screen: UserDetail,
+      navigationOptions: {
+        title: 'USER DETAIL',
+      },
+    },
   },
   {
     initialRouteName: 'Home',
+  }
+);
+
+const RootStack = createBottomTabNavigator(
+  {
+    // Home: HomeStack,
+    Home: {
+      screen: HomeStack,
+      navigationOptions: {
+        title: 'Tab One',
+      }
+    },
+    TabTwo: {
+      screen: TabTwo,
+      navigationOptions: {
+        title: 'Tab Two',
+      }
+    },
   },
 );
 

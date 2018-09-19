@@ -1,22 +1,22 @@
-import { ISLOADING, FETCHING_USERS, FETCHING_ERROR } from '../constants';
+import { ISLOADING, FETCHING_POST, FETCHING_ERROR } from '../constants';
 
 const initialState = {
-  users: [],
+  post: [],
   isLoading: false,
   error: null,
 };
 
-function fetchUserReducer(state = initialState, action) {
+function fetchPostReducer(state = initialState, action) {
   switch(action.type) {
     case ISLOADING:
       return { ...state, isLoading: action.status };
-    case FETCHING_USERS:
-      return { ...state, users: action.payload };
+    case FETCHING_POST:
+      return { ...state, post: action.payload };
     case FETCHING_ERROR:
-      return { ...state, users: [], error: action.payload };
+      return { ...state, post: [], error: action.payload };
     default:
       return state;
   }
 }
 
-export default fetchUserReducer;
+export default fetchPostReducer;
